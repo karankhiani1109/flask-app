@@ -4,8 +4,8 @@
             <img src="{{ videos.thumbnail_url }}" class="card-img-top" alt="thumbnail">
             <div class="card-body">
                 <h5 class="card-title">{{ videos.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ videos.publish_datetime }}</h6>
                 <p class="card-text">{{ videos.description }}</p>
-                <a href="#" class="btn btn-primary">{{ videos.publish_datetime }} </a>
             </div>
         </div>
     {% endfor %}

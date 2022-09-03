@@ -42,6 +42,6 @@ function update_search_filter(data) {
             }
         }
     } catch (e) {
-        
+        console.log(e);
     }
 }

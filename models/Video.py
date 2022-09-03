@@ -7,7 +7,7 @@ class Video(db.Model):
     video_id = db.Column(db.String(120), unique=True, nullable=False)
     title = db.Column(db.String(1024))
     description = db.Column(db.String(2048))
-    publish_datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    publish_datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow, index=True)
     thumbnail_url = db.Column(db.String(2048))
     created_at = db.Column(db.DateTime, server_default=db.func.now(), onupdate=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now())
