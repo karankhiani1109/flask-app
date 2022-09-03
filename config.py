@@ -10,3 +10,5 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://karan:password@localhost/assignment?c
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 YOU_TUBE_DATA_API_KEY = 'AIzaSyB6_8ULZDIhVMGEogqAne_PNhZSk7TpgR0'
+
+PER_PAGE_LIMIT = 12

@@ -15,8 +15,11 @@ class Video(db.Model):
     def serialize(self):
         return {
             'id': self.id,
+            'video_id': self.video_id,
             'title': self.title,
             'description': self.description,
             'publish_datetime': self.publish_datetime,
-            'thumbnail_url': self.thumbnail_url
+            'thumbnail_url': self.thumbnail_url,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
         }

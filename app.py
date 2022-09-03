@@ -10,7 +10,7 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 migrate = Migrate(app, db, compare_type=True)
-app.register_blueprint(videos_bp, url_prefix='/videos')
+app.register_blueprint(videos_bp, url_prefix='/videos/')
 app.register_blueprint(api_bp, url_prefix='/api')
 logging.basicConfig(level=logging.DEBUG)
 @app.route('/')

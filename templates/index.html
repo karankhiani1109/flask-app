@@ -1,1 +1,39 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>YouTube API Assignment</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+</head>
+<body>
+    <div class="container mt-5" style="margin: auto;">
+        {% if pagination.total == 0 %}
+            <h5>No items found</h5>
+        {% else %}
+            <h3 class="mb-2" id="heading_search">YouTube API videos page - {{ pagination.total }} total results</h3>
+            <div class="input-group search_input mt-3">
+                <input class="form-control border-end-0 border" type="text" placeholder="Search video here" id="search-input">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary border-start-0 border ms-n3" type="button" id="search-button">
+                        Search
+                    </button>
+                </span>
+            </div> 
+            <div  id="video_details">
+                {% include 'video_details.html' %}
+            </div>
+            
+            <div  id="page_numbers">
+                {% include 'page_numbers.html' %}
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

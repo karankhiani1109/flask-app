@@ -56,9 +56,12 @@ def youtube_api_call():
     search_url = "https://www.googleapis.com/youtube/v3/search"
     params = {
         'part' : 'snippet',
-        'q' : 'hmm',
+        'q' : 'football',
         'fields' : 'items(id,snippet)',
-        'key' : "AIzaSyB6_8ULZDIhVMGEogqAne_PNhZSk7TpgR0"
+        'type' : 'video',
+        'order': 'date',
+        'publishedAfter': '',
+        'key' : current_app.config["YOU_TUBE_DATA_API_KEY"]
     }
     response = requests.get(search_url, params)
     return response.json()
@@ -77,7 +80,7 @@ def validate_and_insert_in_db(response):
             elif key == 'description':
                 description = value
             elif key == 'thumbnails':
-                thumbnails = value['default']['url']
+                thumbnails = value['high']['url']
         if video_id is not None:
             video_details = Video.query.filter_by(video_id=video_id).first()
             if video_details is None:
