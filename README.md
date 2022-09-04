@@ -14,7 +14,7 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 
 1. Clone the project
 
-` https://github.com/karankhiani1109/youtube-search.git `
+`git clone https://github.com/karankhiani1109/youtube-search.git `
 
 2. COPY keys to `config.py`
 
