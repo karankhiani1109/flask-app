@@ -8,19 +8,19 @@ import threading
 import atexit
 
 POOL_TIME = 10 #Seconds
-THREAD_LIMIT = 3
+THREAD_LIMIT = 10
 api_response = {}
 data_lock = threading.Lock()
 your_thread = threading.Thread()
 thread_count = 0
 db = SQLAlchemy()
 
-def index():
+def index(): #Initial function execute when /api called with threading
     initialize_threading()
     atexit.register(interrupt)
     return render_template('api.html')
 
-def initialize_threading():
+def initialize_threading(): #function to initiate threading
     global your_thread
     your_thread = threading.Timer(0, call_api_and_store, args=(current_app.app_context(),)) #Starts the initial threadding with 0 secs
     your_thread.start()
@@ -39,11 +39,11 @@ def call_api_and_store(app_context):
         your_thread = threading.Timer(POOL_TIME, call_api_and_store, args=(current_app.app_context(),))
         your_thread.start()   
 
-def interrupt():
+def interrupt(): #execute when in case api is exited cancel all other threads
     global your_thread
     your_thread.cancel()
 
-def youtube_api_call():
+def youtube_api_call(): #call youtube api with search query football
     search_url = "https://www.googleapis.com/youtube/v3/search"
     params = {
         'part' : 'snippet',
@@ -52,6 +52,7 @@ def youtube_api_call():
         'type' : 'video',
         'order': 'date',
         'publishedAfter': datetime.now().strftime("%Y-%m-%dT%H:00:00Z"),
+        'maxResults': 50,
         'key' : current_app.config["YOU_TUBE_DATA_API_KEY"]
     }
     response = requests.get(search_url, params)

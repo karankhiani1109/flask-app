@@ -9,7 +9,7 @@ db = SQLAlchemy()
 
 def index(): #load initial page with all results
     page = request.args.get('page', 1, type=int)
-    per_page = current_app.config['PER_PAGE_LIMIT']
+    per_page = current_app.config['PER_PAGE_LIMIT'] # page_per_limit from config
 
     paginated_videos = get_all_videos(page=page, per_page=per_page)
     return render_template('index.html', pagination=paginated_videos)
@@ -36,7 +36,7 @@ def get_all_videos(page=0, per_page=5): #load all paginated results ordered by p
     return query
 
 def get_filtered_videos(search_value, page=0, per_page=5): #load all paginated filtered results with search query ordered by publish datetime
-    search = "%{}%".format(search_value)
+    search = "%{}%".format(search_value.replace(" ", "%"))
     query = Video.query.filter(or_(Video.title.like(search), Video.description.like(search))).order_by(Video.publish_datetime.desc()).paginate(page=page, per_page = per_page, error_out=True)
     return query
     
