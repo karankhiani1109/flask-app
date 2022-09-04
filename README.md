@@ -40,7 +40,7 @@ To stop the application
 
 
 
-4. Navigate to `http://127.0.0.1:5000:5000` to see the app live
+4. Navigate to `http://127.0.0.1:5000` to see the app live
 
 5. RUN the API ` http://127.0.0.1:5000/api ` to call YouTube API asyc with multiple threading and populate database with video details
 
