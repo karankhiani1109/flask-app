@@ -20,7 +20,7 @@ To make an API to fetch latest videos sorted in reverse chronological order of t
 
 ```
 # Youtube API key
-YOU_TUBE_DATA_API_KEY = 'AIzaSyB6_8ULZDIhVMGEogqAne_PNhZSk7TpgR0'
+YOU_TUBE_DATA_API_KEY = ''
 
 # Pagination page per limit(default)
 PER_PAGE_LIMIT = 12 
