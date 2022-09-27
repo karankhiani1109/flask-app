@@ -9,6 +9,6 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@mysql/assignment?charse
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-YOU_TUBE_DATA_API_KEY = 'AIzaSyB6_8ULZDIhVMGEogqAne_PNhZSk7TpgR0'
+YOU_TUBE_DATA_API_KEY = ''
 
 PER_PAGE_LIMIT = 12
